@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ah Bot</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="action_settings">Settings</string>
+    <string name="tab_text_1">Today</string>
+    <string name="tab_text_2">This Week</string>
+    <string name="tab_text_3">All</string>
+</resources>
