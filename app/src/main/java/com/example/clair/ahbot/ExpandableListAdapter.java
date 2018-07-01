@@ -8,18 +8,16 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> listHeader;
-    private HashMap<String,List<Task>> listChild;
+    private HashMap<String,List<Tasks>> listChild;
 
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<Task>> listChildData) {
+                                 HashMap<String, List<Tasks>> listChildData) {
         this.context = context;
         this.listHeader = listDataHeader;
         this.listChild = listChildData;
@@ -27,6 +25,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getGroupCount() {
         return this.listHeader.size();
+//        return 0;
     }
 
     @Override
@@ -84,7 +83,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-            final Task childText = (Task) getChild(groupPosition, childPosition);
+            final Tasks childText = (Tasks) getChild(groupPosition, childPosition);
 
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this.context

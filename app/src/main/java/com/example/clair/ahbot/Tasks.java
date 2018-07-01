@@ -1,9 +1,9 @@
 package com.example.clair.ahbot;
 
-public class Task {
+public class Tasks {
     private String taskName, taskDueDate,taskDueTime;
 
-    public Task(String taskName, String taskDueDate, String taskDueTime) {
+    public Tasks(String taskName, String taskDueDate, String taskDueTime) {
         this.taskName = taskName;
         this.taskDueDate = taskDueDate;
         this.taskDueTime = taskDueTime;
