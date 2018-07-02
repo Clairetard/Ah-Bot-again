@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1017446431793-7quj3j6uekf68hm9c99ec4r816arrmkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.clair.ahbot",
+            "certificate_hash": "b5b811f79627297f4f76bf8ba7519485d06a649c"
+          }
+        },
+        {
           "client_id": "1017446431793-ga509fcsrp05id8lgcdk6sedo3j12m26.apps.googleusercontent.com",
           "client_type": 3
         }

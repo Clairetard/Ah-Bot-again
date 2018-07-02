@@ -44,18 +44,20 @@ public class FirestoreHelperSchedule {
                     return;
                 }
                 for (DocumentSnapshot document : queryDocumentSnapshots){
-                    if(document.getBoolean("every")){
-                        String taskName=document.getString("reminderName");
-                        String time=document.getString("reminderTime");
-                        Tasks t=new Tasks(taskName,null,time);
-                        dailyTasks.add(t);
-                    }
-                    else{
-                        String taskName=document.getString("reminderName");
-                        String dueDate=document.getString("reminderDate");
-                        String time=document.getString("reminderTime");
-                        Tasks t=new Tasks(taskName,dueDate,time);
-                        allTasks.add(t);
+                    if(!document.get("every").toString().equalsIgnoreCase("false") &&!document.get("every").toString().equalsIgnoreCase("true") ) {
+                        Integer i = Integer.parseInt(document.get("every").toString());
+                        if (i == 1) {
+                            String taskName = document.getString("reminderName");
+                            String time = document.getString("reminderTime");
+                            Tasks t = new Tasks(taskName, null, time);
+                            dailyTasks.add(t);
+                        } else {
+                            String taskName = document.getString("reminderName");
+                            String dueDate = document.getString("reminderDate");
+                            String time = document.getString("reminderTime");
+                            Tasks t = new Tasks(taskName, dueDate, time);
+                            allTasks.add(t);
+                        }
                     }
                 }
                 ref.prepareListData(dailyTasks, allTasks);
