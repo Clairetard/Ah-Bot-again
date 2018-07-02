@@ -22,6 +22,7 @@ public class Schedule extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
 
         expListView=findViewById(R.id.expListView);
+        listDataChild=new HashMap<String, List<Tasks>>();
 
         firestoreHelperSchedule=new FirestoreHelperSchedule(this);
         firestoreHelperSchedule.getTasks(this);
@@ -33,7 +34,6 @@ public class Schedule extends AppCompatActivity {
         expListView.setAdapter(listAdapter);
     }
     public void prepareListData(List<Tasks> dailyTasks, List<Tasks> allTasks){
-        listDataChild=new HashMap<String, List<Tasks>>();
 
 //sample data
 //        t=new Tasks("Eat Paracetamol",null,"8:00am");
