@@ -41,10 +41,9 @@ public class FirestoreHelperSchedule {
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if(e!=null){
                     Log.w("FirestoreHelper", "Listen failed.", e);
-                    return;
+//                    return;
                 }
                 for (DocumentSnapshot document : queryDocumentSnapshots){
-                    if(!document.get("every").toString().equalsIgnoreCase("false") &&!document.get("every").toString().equalsIgnoreCase("true") ) {
                         Integer i = Integer.parseInt(document.get("every").toString());
                         if (i == 1) {
                             String taskName = document.getString("reminderName");
@@ -59,43 +58,10 @@ public class FirestoreHelperSchedule {
                             allTasks.add(t);
                         }
                     }
-                }
+
                 ref.prepareListData(dailyTasks, allTasks);
             }
         });
-    }
-    public void getTasks(Schedule s){
-        final Schedule ref=s;
-        scheduleCollection.get().
-                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot document : task.getResult()){
-//                                if(document.getBoolean("every")){
-//                                    String taskName=document.getString("reminderName");
-//                                    String time=document.getString("reminderTime");
-//                                    Tasks t=new Tasks(taskName,null,time);
-//                                    dailyTasks.add(t);
-//                                }
-//                                else{
-                                    String taskName=document.getString("reminderName");
-                                    String dueDate=document.getString("reminderDate");
-                                    String time=document.getString("reminderTime");
-                                    Tasks t=new Tasks(taskName,dueDate,time);
-                                    allTasks.add(t);
-//                                }
-                            }
-                            ref.prepareListData(dailyTasks, allTasks);
-
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                            return;
-                        }
-                    }
-                });
-
     }
 
 }

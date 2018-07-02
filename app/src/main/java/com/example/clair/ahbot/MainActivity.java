@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.btnViewMedicine:
-                i=new Intent(MainActivity.this,MedProfile.class);
+                i=new Intent(MainActivity.this,ViewMedicine.class);
                 startActivity(i);
                 break;
             case R.id.btnSchedule:

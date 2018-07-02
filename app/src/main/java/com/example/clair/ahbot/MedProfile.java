@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MedProfile extends AppCompatActivity {
@@ -17,10 +18,13 @@ public class MedProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_profile);
 
+        Dataset=new ArrayList<>();
+        rvMedProfile=findViewById(R.id.rvMedProfuel);
         AddData();
         layoutManager=new LinearLayoutManager(this);
         medProfileAdapter=new MedProfileAdapter(this,Dataset);
 
+        rvMedProfile.setLayoutManager(layoutManager);
         rvMedProfile.setAdapter(medProfileAdapter);
     }
     public void AddData(){

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp">
+
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
@@ -11,14 +13,14 @@
         android:text="06/08/2018"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
+
     <CheckBox
         android:id="@+id/chkDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvDate"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/tvTaskName"
+        app:layout_constraintTop_toTopOf="@+id/tvTaskName" />
 
     <TextView
         android:id="@+id/tvTaskName"
@@ -26,9 +28,10 @@
         android:layout_height="wrap_content"
         android:singleLine="false"
         android:text="Task Name"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvShowTime"
         app:layout_constraintLeft_toRightOf="@id/chkDone"
-        app:layout_constraintTop_toBottomOf="@id/tvDate"/>
+        app:layout_constraintTop_toTopOf="@+id/tvShowTime" />
 
     <TextView
         android:id="@+id/tvShowTime"
@@ -36,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:text="8:00am"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDate"/>
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
 </android.support.constraint.ConstraintLayout>

@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="8dp"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnViewMedProfile"
         android:layout_width="match_parent"
-        android:layout_height="87dp"
+        android:layout_height="113dp"
         android:background="@color/pink"
         android:drawableLeft="@drawable/ic_people_white_48dp"
         android:elevation="3dp"
@@ -19,12 +19,12 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18sp"
-        tools:layout_editor_absoluteY="8dp" />
+        tools:layout_editor_absoluteY="8dp"/>
 
     <Button
         android:id="@+id/btnViewMedicine"
         android:layout_width="match_parent"
-        android:layout_height="87dp"
+        android:layout_height="114dp"
         android:layout_marginVertical="12dp"
         android:background="@color/yello"
         android:drawableLeft="@drawable/pills"
@@ -39,7 +39,7 @@
     <Button
         android:id="@+id/btnSchedule"
         android:layout_width="match_parent"
-        android:layout_height="87dp"
+        android:layout_height="114dp"
         android:layout_marginVertical="12dp"
         android:background="@color/blue"
         android:drawableLeft="@drawable/ic_schedule_white_48dp"
@@ -54,7 +54,7 @@
     <Button
         android:id="@+id/btnRecipe"
         android:layout_width="match_parent"
-        android:layout_height="87dp"
+        android:layout_height="114dp"
         android:layout_marginVertical="12dp"
         android:background="@color/green"
         android:drawableLeft="@drawable/ic_schedule_white_48dp"

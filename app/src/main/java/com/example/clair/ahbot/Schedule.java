@@ -25,7 +25,6 @@ public class Schedule extends AppCompatActivity {
         listDataChild=new HashMap<String, List<Tasks>>();
 
         firestoreHelperSchedule=new FirestoreHelperSchedule(this);
-        firestoreHelperSchedule.getTasks(this);
 
         listDataHeader=new ArrayList<String>();
         listDataHeader.add("Daily");
@@ -34,13 +33,6 @@ public class Schedule extends AppCompatActivity {
         expListView.setAdapter(listAdapter);
     }
     public void prepareListData(List<Tasks> dailyTasks, List<Tasks> allTasks){
-
-//sample data
-//        t=new Tasks("Eat Paracetamol",null,"8:00am");
-//        dailyTasks.add(t);
-//        t=new Tasks("Go Taichi","06/08/2018","8:00am");
-//        allTasks.add(t);
-
         listDataChild.put("Daily", dailyTasks);
         listDataChild.put("All", allTasks);
     }
