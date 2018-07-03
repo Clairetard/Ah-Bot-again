@@ -9,15 +9,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewHolder>{
     public List<Medicine> medicineList;
     Context context;
 
-    public MedicineAdapter(Context context,List<Medicine> medicineList){
+    public MedicineAdapter(Context context){
         this.context=context;
-        this.medicineList=medicineList;
+        this.medicineList=new ArrayList<>();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView tvMedName,tvDosage,tvFrequency,tvRemarks;
@@ -41,10 +42,11 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Medicine medicine=medicineList.get(position);
+
         holder.tvMedName.setText(medicine.getMedName());
         holder.tvDosage.setText(medicine.getMedAmount());
         holder.tvDosage.setText(medicine.getMedFrequency());
-        if(medicine.getRemarks()!=null){
+        if(medicine.getRemarks()!=""){
             holder.tvRemarks.setText(medicine.getRemarks());
         }
         else {
@@ -57,5 +59,16 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
         return medicineList==null?0:medicineList.size();
     }
 
-
+    public void addItem(Medicine m){
+        medicineList.add(m);
+        notifyItemChanged(medicineList.size()-1);
+    }
+    public void addAlItems(List<Medicine> medicineList){
+        for(Medicine medicine: medicineList){
+            addItem(medicine);
+        }
+    }
+    public void deleteEverything(){
+        if(medicineList!=null) medicineList.clear();
+    }
 }

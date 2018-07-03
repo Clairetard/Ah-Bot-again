@@ -25,7 +25,6 @@ public class Schedule extends AppCompatActivity {
         listDataChild=new HashMap<String, List<Tasks>>();
 
         firestoreHelperSchedule=new FirestoreHelperSchedule(this);
-
         listDataHeader=new ArrayList<String>();
         listDataHeader.add("Daily");
         listDataHeader.add("All");

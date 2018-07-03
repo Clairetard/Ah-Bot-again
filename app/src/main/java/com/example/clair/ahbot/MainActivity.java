@@ -8,10 +8,16 @@ import android.view.View;
 import android.widget.Button;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnMedProfile, btnMedicine,btnSchedule,btnRecipe;
+
+
+    List<Medicine> medicines;
+    FirestoreHelperMedicine firestoreHelperMedicine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMedicine.setOnClickListener(this);
         btnSchedule.setOnClickListener(this);
         btnRecipe.setOnClickListener(this);
+
+        medicines=new ArrayList<>();
+        firestoreHelperMedicine=new FirestoreHelperMedicine();
     }
     @Override
     public void onClick(View v){
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewMedicine:
                 i=new Intent(MainActivity.this,ViewMedicine.class);
+                i.putExtra("MedList",(ArrayList<Medicine>) medicines);
                 startActivity(i);
                 break;
             case R.id.btnSchedule:
@@ -77,5 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         deleteCache(this);
         super.onDestroy();
+    }
+
+    public void getMedicine(List<Medicine> medlist) {
+
+        medicines = medlist;
     }
 }
