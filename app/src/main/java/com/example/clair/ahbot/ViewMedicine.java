@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,18 +25,12 @@ public class ViewMedicine extends AppCompatActivity {
 
         rvMedicines=findViewById(R.id.rvMedsList);
 
-        Bundle extras=getIntent().getExtras();
         medicines=new ArrayList<>();
-;
+
         layoutManager=new LinearLayoutManager(this);
         medicineAdapter=new MedicineAdapter(this);
-//
         rvMedicines.setLayoutManager(layoutManager);
         rvMedicines.setAdapter(medicineAdapter);
-
-        //medicines=(ArrayList<Medicine>)extras.getSerializable("MedList");
-
-//    }
     }
     @Override
     protected void onStart(){

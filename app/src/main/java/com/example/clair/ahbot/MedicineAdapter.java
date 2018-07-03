@@ -6,8 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +23,11 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
         this.context=context;
         this.medicineList=new ArrayList<>();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder
+    implements View.OnClickListener{
         public TextView tvMedName,tvDosage,tvFrequency,tvRemarks;
         public LinearLayout llRemarks;
+        public ImageButton ibDelete;
         public ViewHolder(View itemView) {
             super(itemView);
             tvMedName=itemView.findViewById(R.id.tvMedName);
@@ -30,6 +35,13 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
             tvFrequency=itemView.findViewById(R.id.tvFrequency);
             tvRemarks=itemView.findViewById(R.id.tvRemarks);
             llRemarks=itemView.findViewById(R.id.llRemarks);
+            ibDelete=itemView.findViewById(R.id.ibDeleteMed);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(v.getId()==ibDelete.getId()){
+            }
         }
     }
     @NonNull
@@ -52,6 +64,7 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
         else {
             holder.llRemarks.setVisibility(View.GONE);
         }
+
     }
 
     @Override

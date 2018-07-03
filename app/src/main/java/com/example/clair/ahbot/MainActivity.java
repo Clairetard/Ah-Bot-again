@@ -59,9 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMedicine.setOnClickListener(this);
         btnSchedule.setOnClickListener(this);
         btnRecipe.setOnClickListener(this);
-
-        medicines=new ArrayList<>();
-        firestoreHelperMedicine=new FirestoreHelperMedicine();
     }
 
     @Override
@@ -74,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewMedicine:
                 i=new Intent(MainActivity.this,ViewMedicine.class);
-                i.putExtra("MedList",(ArrayList<Medicine>) medicines);
                 startActivity(i);
                 break;
             case R.id.btnSchedule:
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.btnRecipe:
-                i=new Intent(MainActivity.this,MedProfile.class);
+                i=new Intent(MainActivity.this,ViewRecipe.class);
                 startActivity(i);
                 break;
         }
@@ -119,8 +115,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
     }
 
-    public void getMedicine(List<Medicine> medlist) {
-
-        medicines = medlist;
-    }
 }
