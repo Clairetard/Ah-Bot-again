@@ -1,17 +1,31 @@
 package com.example.clair.ahbot;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
 
     Button btnMedProfile, btnMedicine,btnSchedule,btnRecipe;
 
@@ -22,6 +36,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(Constants.CHANNEL_ID, Constants.CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+
+            channel.setDescription(Constants.CHANNEL_DESCRIPTION);
+            channel.enableLights(true);
+            channel.setLightColor(Color.RED);
+            channel.enableVibration(true);
+            channel.setImportance(NotificationManager.IMPORTANCE_HIGH);
+            channel.setVibrationPattern(new long[]{100,200,300,400,500,400,300,200});
+
+            manager.createNotificationChannel(channel);
+        }
+
         btnMedProfile=findViewById(R.id.btnViewMedProfile);
         btnMedicine=findViewById(R.id.btnViewMedicine);
         btnSchedule=findViewById(R.id.btnSchedule);
@@ -34,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         medicines=new ArrayList<>();
         firestoreHelperMedicine=new FirestoreHelperMedicine();
     }
+
     @Override
     public void onClick(View v){
         Intent i;
