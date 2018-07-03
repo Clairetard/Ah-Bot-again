@@ -52,4 +52,17 @@ public class MedProfileAdapter extends RecyclerView.Adapter<MedProfileAdapter.Vi
         return medicalProfileList==null?0:medicalProfileList.size();
     }
 
+    public void addItem(MedicalProfile m){
+        medicalProfileList.add(m);
+        notifyItemChanged(medicalProfileList.size()-1);
+    }
+    public void addAlItems(List<MedicalProfile> medicalProfiles){
+        for(MedicalProfile medicalProfile: medicalProfiles){
+            addItem(medicalProfile);
+        }
+    }
+    public void deleteEverything(){
+        if(medicalProfileList!=null) medicalProfileList.clear();
+    }
+
 }

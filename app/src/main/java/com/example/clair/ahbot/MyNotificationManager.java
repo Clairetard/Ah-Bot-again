@@ -37,7 +37,7 @@ public class MyNotificationManager {
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setVibrate(new long[]{100,200,300,400,500,400,300,200});
 
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, ViewRecipe.class);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0, intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
