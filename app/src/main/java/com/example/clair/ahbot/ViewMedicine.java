@@ -25,7 +25,7 @@ public class ViewMedicine extends AppCompatActivity {
 
         Bundle extras=getIntent().getExtras();
         medicines=new ArrayList<>();
-
+;
         layoutManager=new LinearLayoutManager(this);
         medicineAdapter=new MedicineAdapter(this);
 //
@@ -33,9 +33,14 @@ public class ViewMedicine extends AppCompatActivity {
         rvMedicines.setAdapter(medicineAdapter);
 
         //medicines=(ArrayList<Medicine>)extras.getSerializable("MedList");
-        firestoreHelperMedicine=new FirestoreHelperMedicine(this);
 
 //    }
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        ViewMedicine ref=this;
+        firestoreHelperMedicine=new FirestoreHelperMedicine(ref);
     }
     public void getMedicine(List<Medicine> medlist) {
 
