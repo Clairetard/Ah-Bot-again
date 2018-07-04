@@ -23,11 +23,9 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
         this.context=context;
         this.medicineList=new ArrayList<>();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder
-    implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvMedName,tvDosage,tvFrequency,tvRemarks;
         public LinearLayout llRemarks;
-        public ImageButton ibDelete;
         public ViewHolder(View itemView) {
             super(itemView);
             tvMedName=itemView.findViewById(R.id.tvMedName);
@@ -35,14 +33,8 @@ public class MedicineAdapter  extends RecyclerView.Adapter<MedicineAdapter.ViewH
             tvFrequency=itemView.findViewById(R.id.tvFrequency);
             tvRemarks=itemView.findViewById(R.id.tvRemarks);
             llRemarks=itemView.findViewById(R.id.llRemarks);
-            ibDelete=itemView.findViewById(R.id.ibDeleteMed);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if(v.getId()==ibDelete.getId()){
             }
-        }
+
     }
     @NonNull
     @Override
