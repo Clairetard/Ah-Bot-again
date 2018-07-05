@@ -31,7 +31,7 @@ public class FirestoreHelperMedProfile {
                 if(task.isSuccessful()){
                     for(DocumentSnapshot document:task.getResult()){
                         String name=document.getString("name");
-                        String age=document.getString("age");
+                        String age=document.get("age").toString();
                         String allergies= TextUtils.join(", ",(List<String>)document.get("allergies"));
                         String diseases=TextUtils.join(", ",(List<String>)document.get("diseases"));
 

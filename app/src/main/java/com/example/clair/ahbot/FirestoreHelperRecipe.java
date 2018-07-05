@@ -13,8 +13,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.opencensus.tags.Tag;
-
 import static android.support.constraint.Constraints.TAG;
 
 public class FirestoreHelperRecipe {
