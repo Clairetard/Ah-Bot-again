@@ -1,4 +1,4 @@
-# Ah-Bot-again
+# Ah-Bot: Mobile App 
 
 Mobile Application Side of AhBot with provided UI for elderly to use
 
