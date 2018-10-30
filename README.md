@@ -1,7 +1,10 @@
 # Ah-Bot-again
-who needs a read me
 
+Mobile Application Side of AhBot with provided UI for elderly to use
 
-But then again people wanna know so:
+Features
+- View scanned medicine
+- View medical profiles
+- View daily/monthly tasks
+- View recommended recipies for a healthy meal
 
-Basically this is a chatbot made as a joke because we didn't expect to get into finals for a compeition :>
